@@ -60,7 +60,7 @@ export default function RecordList() {
   const loadMoreRecords = async () => {
     setLoading(true);
     const response = await fetch(
-      `http://localhost:5050/record?page=${page}&search=${searchTerm}`
+      `https://server-ujv4.onrender.com/record?page=${page}&search=${searchTerm}`
     );
     if (!response.ok) {
       const message = `An error occurred: ${response.statusText}`;
@@ -92,7 +92,7 @@ export default function RecordList() {
   );
 
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5050/record/${id}`, {
+    await fetch(`https://server-ujv4.onrender.com/${id}`, {
       method: "DELETE",
     });
     const newRecords = records.filter((el) => el._id !== id);
